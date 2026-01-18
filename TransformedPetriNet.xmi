@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<petrinetv1:Net xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:petrinetv1="petrinetv1">
+  <places name="Tile1"/>
+  <places name="Tile2" tokens="1"/>
+  <places name="Tile3"/>
+  <places name="Trap_TRAP"/>
+  <places name="CaveEntrance"/>
+  <places name="CaveExit"/>
+  <places name="Tile4"/>
+  <places name="Collectable1_inventory"/>
+  <places name="CaveKey_inventory"/>
+  <places name="Collectable2_inventory"/>
+  <places name="Collectable1_ground" tokens="1"/>
+  <places name="CaveKey_ground" tokens="1"/>
+  <places name="Collectable2_ground" tokens="1"/>
+  <places name="Hero_Lives" tokens="10"/>
+  <transitions input="//@places.3" output="//@places.1" name="Trap_to_North"/>
+  <transitions input="//@places.4" output="//@places.2" name="CaveEntrance_to_North"/>
+  <transitions input="//@places.5" output="//@places.6" name="CaveExit_to_North"/>
+  <transitions input="//@places.1 //@places.13" output="//@places.3" name="Tile2_to_South"/>
+  <transitions input="//@places.2" output="//@places.4" name="Tile3_to_South"/>
+  <transitions input="//@places.6" output="//@places.5" name="Tile4_to_South"/>
+  <transitions input="//@places.0" output="//@places.1" name="Tile1_to_East"/>
+  <transitions input="//@places.1" output="//@places.2" name="Tile2_to_East"/>
+  <transitions input="//@places.3" output="//@places.4" name="Trap_to_East"/>
+  <transitions input="//@places.1" output="//@places.0" name="Tile2_to_West"/>
+  <transitions input="//@places.2" output="//@places.1" name="Tile3_to_West"/>
+  <transitions input="//@places.4 //@places.13" output="//@places.3" name="CaveEntrance_to_West"/>
+  <transitions input="//@places.4 //@places.8" output="//@places.5 //@places.8" name="CaveEntrance_enter"/>
+  <transitions input="//@places.5 //@places.8" output="//@places.4 //@places.8" name="CaveExit_enter"/>
+  <transitions input="//@places.10 //@places.0" output="//@places.7 //@places.0" name="PickUp_Collectable1"/>
+  <transitions input="//@places.11 //@places.2" output="//@places.8 //@places.2" name="PickUp_CaveKey"/>
+  <transitions input="//@places.12 //@places.6" output="//@places.9 //@places.6" name="PickUp_Collectable2"/>
+</petrinetv1:Net>

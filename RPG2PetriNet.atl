@@ -1,0 +1,191 @@
+module RPG2PetriNet;
+create OUT : PetriNet from IN : RPG;
+
+
+-- Helpers
+helper def: getHero() : RPG!Hero =
+	RPG!Hero.allInstances()->first();
+
+helper context RPG!Tile def: hasHero() : Boolean =
+	thisModule.getHero().location = self;
+
+
+-- Rules
+rule World2Net {
+	from
+		s : RPG!World
+	to
+		t : PetriNet!Net (
+			places <- Sequence{}
+				-- 1. Tiles
+				->union(
+					s.levels->collect(l | l.tiles)->flatten()
+					->select(x | not x.oclIsTypeOf(RPG!Obstacle))
+				)
+				-- 2. Items (Inventory & Ground)
+				->union(
+					RPG!Item.allInstances()->collect(i | thisModule.resolveTemp(i, 'p_inv'))
+				)
+				->union(
+					RPG!Item.allInstances()->collect(i | thisModule.resolveTemp(i, 'p_ground'))
+				)
+				-- 3. Lives
+				->union(
+					Sequence{ thisModule.resolveTemp(thisModule.getHero(), 'p_lives') }
+				)
+				->excluding(OclUndefined),
+			
+			transitions <- Sequence{}
+				-- Tile Adjacency (Lazy rules check for Traps inside)
+				->union(
+					RPG!Tile.allInstances()
+					->select(t | not t.oclIsTypeOf(RPG!Obstacle))
+					->select(t | not t.north.oclIsUndefined() and not t.north.oclIsTypeOf(RPG!Obstacle))
+					->collect(t | thisModule.MoveNorth(t))
+				)
+				->union(
+					RPG!Tile.allInstances()
+					->select(t | not t.oclIsTypeOf(RPG!Obstacle))
+					->select(t | not t.south.oclIsUndefined() and not t.south.oclIsTypeOf(RPG!Obstacle))
+					->collect(t | thisModule.MoveSouth(t))
+				)
+				->union(
+					RPG!Tile.allInstances()
+					->select(t | not t.oclIsTypeOf(RPG!Obstacle))
+					->select(t | not t.east.oclIsUndefined() and not t.east.oclIsTypeOf(RPG!Obstacle))
+					->collect(t | thisModule.MoveEast(t))
+				)
+				->union(
+					RPG!Tile.allInstances()
+					->select(t | not t.oclIsTypeOf(RPG!Obstacle))
+					->select(t | not t.west.oclIsUndefined() and not t.west.oclIsTypeOf(RPG!Obstacle))
+					->collect(t | thisModule.MoveWest(t))
+				)
+				-- Interactions
+				->union(
+					RPG!Door.allInstances()->collect(d | thisModule.resolveTemp(d, 't_teleport'))
+				)
+				->union(
+					RPG!Item.allInstances()->collect(i | thisModule.resolveTemp(i, 't_pickup'))
+				)
+				->excluding(OclUndefined)
+		)
+}
+
+
+rule Hero2Lives {
+	from
+		s : RPG!Hero
+	to
+		-- This place holds the tokens for lives
+		p_lives : PetriNet!Place (
+			name <- 'Hero_Lives',
+			tokens <- s.lives
+		)
+}
+
+
+rule StandardTile2Place {
+	from
+		s : RPG!StandardTile
+	to
+		p : PetriNet!Place (
+			name <- s.name,
+			tokens <- if s.hasHero() then 1 else 0 endif
+		)
+}
+
+
+rule Trap2Place {
+	from
+		s : RPG!Trap
+	to
+		p : PetriNet!Place (
+			name <- s.name + '_TRAP',
+			tokens <- if s.hasHero() then 1 else 0 endif
+		)
+}
+
+
+rule Door2Place {
+	from
+		s : RPG!Door
+	to
+		p : PetriNet!Place (
+			name <- s.name,
+			tokens <- if s.hasHero() then 1 else 0 endif
+		),
+		t_teleport : PetriNet!Transition (
+			name <- s.name + '_enter',
+			input <- if not s.requiresKey.oclIsUndefined() 
+					 then Sequence{p, thisModule.resolveTemp(s.requiresKey, 'p_inv')} 
+					 else Sequence{p} endif,
+			output <- if not s.requiresKey.oclIsUndefined() 
+					  then Sequence{s.leadsTo, thisModule.resolveTemp(s.requiresKey, 'p_inv')} 
+					  else Sequence{s.leadsTo} endif
+		)
+}
+
+
+rule Item2PetriNet {
+	from
+		s : RPG!Item
+	to
+		p_ground : PetriNet!Place ( name <- s.name + '_ground', tokens <- 1 ),
+		p_inv : PetriNet!Place ( name <- s.name + '_inventory', tokens <- 0 ),
+		t_pickup : PetriNet!Transition (
+			name <- 'PickUp_' + s.name,
+			input <- Sequence{ p_ground, s.refImmediateComposite() }, 
+			output <- Sequence{ p_inv, s.refImmediateComposite() }
+		)
+}
+
+
+lazy rule MoveNorth {
+	from s : RPG!Tile
+	to t : PetriNet!Transition (
+		name <- s.name + '_to_North',
+		-- INPUT: Check if destination (s.north) is a Trap
+		input <- if s.north.oclIsTypeOf(RPG!Trap)
+				 then Sequence { s, thisModule.resolveTemp(thisModule.getHero(), 'p_lives') }
+				 else Sequence { s } endif,
+		
+		output <- s.north
+	)
+}
+
+
+lazy rule MoveSouth {
+	from s : RPG!Tile
+	to t : PetriNet!Transition (
+		name <- s.name + '_to_South',
+		input <- if s.south.oclIsTypeOf(RPG!Trap)
+				 then Sequence { s, thisModule.resolveTemp(thisModule.getHero(), 'p_lives') }
+				 else Sequence { s } endif,
+		output <- s.south
+	)
+}
+
+
+lazy rule MoveEast {
+	from s : RPG!Tile
+	to t : PetriNet!Transition (
+		name <- s.name + '_to_East',
+		input <- if s.east.oclIsTypeOf(RPG!Trap)
+				 then Sequence { s, thisModule.resolveTemp(thisModule.getHero(), 'p_lives') }
+				 else Sequence { s } endif,
+		output <- s.east
+	)
+}
+
+
+lazy rule MoveWest {
+	from s : RPG!Tile
+	to t : PetriNet!Transition (
+		name <- s.name + '_to_West',
+		input <- if s.west.oclIsTypeOf(RPG!Trap)
+				 then Sequence { s, thisModule.resolveTemp(thisModule.getHero(), 'p_lives') }
+				 else Sequence { s } endif,
+		output <- s.west
+	)
+}

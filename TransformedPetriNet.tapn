@@ -1,0 +1,1037 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.informatik.hu-berlin.de/top/pnml/ptNetb">
+  <declaration>
+    <structure>
+      <declarations>
+        <namedsort id="dot" name="dot">
+          <dot/>
+        </namedsort>
+      </declarations>
+    </structure>
+  </declaration>
+  <net active="true" id="TAPN1" type="P/T net">
+    <place displayName="true" id="Tile1" initialMarking="0" invariant="&lt; inf" name="Tile1" nameOffsetX="0" nameOffsetY="0" positionX="195" positionY="315">
+      <type>
+        <text>dot</text>
+        <structure>
+          <usersort declaration="dot"/>
+        </structure>
+      </type>
+    </place>
+    <place displayName="true" id="Tile2" initialMarking="1" invariant="&lt; inf" name="Tile2" nameOffsetX="0" nameOffsetY="0" positionX="338" positionY="315">
+      <type>
+        <text>dot</text>
+        <structure>
+          <usersort declaration="dot"/>
+        </structure>
+      </type>
+    </place>
+    <place displayName="true" id="Tile3" initialMarking="0" invariant="&lt; inf" name="Tile3" nameOffsetX="0" nameOffsetY="0" positionX="473" positionY="315">
+      <type>
+        <text>dot</text>
+        <structure>
+          <usersort declaration="dot"/>
+        </structure>
+      </type>
+    </place>
+    <place displayName="true" id="Trap_TRAP" initialMarking="0" invariant="&lt; inf" name="Trap_TRAP" nameOffsetX="0" nameOffsetY="0" positionX="338" positionY="465">
+      <type>
+        <text>dot</text>
+        <structure>
+          <usersort declaration="dot"/>
+        </structure>
+      </type>
+    </place>
+    <place displayName="true" id="CaveEntrance" initialMarking="0" invariant="&lt; inf" name="CaveEntrance" nameOffsetX="9" nameOffsetY="-15" positionX="473" positionY="465">
+      <type>
+        <text>dot</text>
+        <structure>
+          <usersort declaration="dot"/>
+        </structure>
+      </type>
+    </place>
+    <place displayName="true" id="CaveExit" initialMarking="0" invariant="&lt; inf" name="CaveExit" nameOffsetX="0" nameOffsetY="0" positionX="683" positionY="465">
+      <type>
+        <text>dot</text>
+        <structure>
+          <usersort declaration="dot"/>
+        </structure>
+      </type>
+    </place>
+    <place displayName="true" id="Tile4" initialMarking="0" invariant="&lt; inf" name="Tile4" nameOffsetX="0" nameOffsetY="0" positionX="683" positionY="315">
+      <type>
+        <text>dot</text>
+        <structure>
+          <usersort declaration="dot"/>
+        </structure>
+      </type>
+    </place>
+    <place displayName="true" id="Collectable1_inventory" initialMarking="0" invariant="&lt; inf" name="Collectable1_inventory" nameOffsetX="0" nameOffsetY="0" positionX="128" positionY="405">
+      <type>
+        <text>dot</text>
+        <structure>
+          <usersort declaration="dot"/>
+        </structure>
+      </type>
+    </place>
+    <place displayName="true" id="CaveKey_inventory" initialMarking="0" invariant="&lt; inf" name="CaveKey_inventory" nameOffsetX="0" nameOffsetY="0" positionX="548" positionY="330">
+      <type>
+        <text>dot</text>
+        <structure>
+          <usersort declaration="dot"/>
+        </structure>
+      </type>
+    </place>
+    <place displayName="true" id="Collectable2_inventory" initialMarking="0" invariant="&lt; inf" name="Collectable2_inventory" nameOffsetX="0" nameOffsetY="0" positionX="735" positionY="203">
+      <type>
+        <text>dot</text>
+        <structure>
+          <usersort declaration="dot"/>
+        </structure>
+      </type>
+    </place>
+    <place displayName="true" id="Collectable1_ground" initialMarking="1" invariant="&lt; inf" name="Collectable1_ground" nameOffsetX="0" nameOffsetY="0" positionX="120" positionY="270">
+      <type>
+        <text>dot</text>
+        <structure>
+          <usersort declaration="dot"/>
+        </structure>
+      </type>
+    </place>
+    <place displayName="true" id="CaveKey_ground" initialMarking="1" invariant="&lt; inf" name="CaveKey_ground" nameOffsetX="0" nameOffsetY="0" positionX="488" positionY="263">
+      <type>
+        <text>dot</text>
+        <structure>
+          <usersort declaration="dot"/>
+        </structure>
+      </type>
+    </place>
+    <place displayName="true" id="Collectable2_ground" initialMarking="1" invariant="&lt; inf" name="Collectable2_ground" nameOffsetX="0" nameOffsetY="0" positionX="675" positionY="278">
+      <type>
+        <text>dot</text>
+        <structure>
+          <usersort declaration="dot"/>
+        </structure>
+      </type>
+    </place>
+    <place displayName="true" id="Hero_Lives" initialMarking="10" invariant="&lt; inf" name="Hero_Lives" nameOffsetX="0" nameOffsetY="0" positionX="233" positionY="533">
+      <type>
+        <text>dot</text>
+        <structure>
+          <usersort declaration="dot"/>
+        </structure>
+      </type>
+      <hlinitialMarking>
+        <text>10'dot</text>
+        <structure>
+          <add>
+            <subterm>
+              <numberof>
+                <subterm>
+                  <numberconstant value="10">
+                    <positive/>
+                  </numberconstant>
+                </subterm>
+                <subterm>
+                  <dotconstant/>
+                </subterm>
+              </numberof>
+            </subterm>
+          </add>
+        </structure>
+      </hlinitialMarking>
+    </place>
+    <transition angle="0" displayName="true" distribution="constant" firingMode="Random" id="Trap_to_North" infiniteServer="false" name="Trap_to_North" nameOffsetX="0" nameOffsetY="0" player="0" positionX="360" positionY="390" priority="0" urgent="false" value="1.0" weight="1.0"/>
+    <transition angle="0" displayName="true" distribution="constant" firingMode="Random" id="CaveEntrance_to_North" infiniteServer="false" name="CaveEntrance_to_North" nameOffsetX="0" nameOffsetY="0" player="0" positionX="450" positionY="390" priority="0" urgent="false" value="1.0" weight="1.0"/>
+    <transition angle="0" displayName="true" distribution="constant" firingMode="Random" id="CaveExit_to_North" infiniteServer="false" name="CaveExit_to_North" nameOffsetX="0" nameOffsetY="0" player="0" positionX="705" positionY="390" priority="0" urgent="false" value="1.0" weight="1.0"/>
+    <transition angle="0" displayName="true" distribution="constant" firingMode="Random" id="Tile2_to_South" infiniteServer="false" name="Tile2_to_South" nameOffsetX="0" nameOffsetY="0" player="0" positionX="323" positionY="390" priority="0" urgent="false" value="1.0" weight="1.0"/>
+    <transition angle="0" displayName="true" distribution="constant" firingMode="Random" id="Tile3_to_South" infiniteServer="false" name="Tile3_to_South" nameOffsetX="0" nameOffsetY="0" player="0" positionX="495" positionY="390" priority="0" urgent="false" value="1.0" weight="1.0"/>
+    <transition angle="0" displayName="true" distribution="constant" firingMode="Random" id="Tile4_to_South" infiniteServer="false" name="Tile4_to_South" nameOffsetX="0" nameOffsetY="0" player="0" positionX="660" positionY="390" priority="0" urgent="false" value="1.0" weight="1.0"/>
+    <transition angle="0" displayName="true" distribution="constant" firingMode="Random" id="Tile1_to_East" infiniteServer="false" name="Tile1_to_East" nameOffsetX="0" nameOffsetY="0" player="0" positionX="263" positionY="285" priority="0" urgent="false" value="1.0" weight="1.0"/>
+    <transition angle="0" displayName="true" distribution="constant" firingMode="Random" id="Tile2_to_East" infiniteServer="false" name="Tile2_to_East" nameOffsetX="0" nameOffsetY="0" player="0" positionX="405" positionY="285" priority="0" urgent="false" value="1.0" weight="1.0"/>
+    <transition angle="0" displayName="true" distribution="constant" firingMode="Random" id="Trap_to_East" infiniteServer="false" name="Trap_to_East" nameOffsetX="0" nameOffsetY="0" player="0" positionX="405" positionY="450" priority="0" urgent="false" value="1.0" weight="1.0"/>
+    <transition angle="0" displayName="true" distribution="constant" firingMode="Random" id="Tile2_to_West" infiniteServer="false" name="Tile2_to_West" nameOffsetX="0" nameOffsetY="0" player="0" positionX="263" positionY="338" priority="0" urgent="false" value="1.0" weight="1.0"/>
+    <transition angle="0" displayName="true" distribution="constant" firingMode="Random" id="Tile3_to_West" infiniteServer="false" name="Tile3_to_West" nameOffsetX="0" nameOffsetY="0" player="0" positionX="405" positionY="338" priority="0" urgent="false" value="1.0" weight="1.0"/>
+    <transition angle="0" displayName="true" distribution="constant" firingMode="Random" id="CaveEntrance_to_West" infiniteServer="false" name="CaveEntrance_to_West" nameOffsetX="0" nameOffsetY="0" player="0" positionX="405" positionY="503" priority="0" urgent="false" value="1.0" weight="1.0"/>
+    <transition angle="0" displayName="true" distribution="constant" firingMode="Random" id="CaveEntrance_enter" infiniteServer="false" name="CaveEntrance_enter" nameOffsetX="0" nameOffsetY="0" player="0" positionX="578" positionY="443" priority="0" urgent="false" value="1.0" weight="1.0"/>
+    <transition angle="0" displayName="true" distribution="constant" firingMode="Random" id="CaveExit_enter" infiniteServer="false" name="CaveExit_enter" nameOffsetX="0" nameOffsetY="0" player="0" positionX="585" positionY="510" priority="0" urgent="false" value="1.0" weight="1.0"/>
+    <transition angle="0" displayName="true" distribution="constant" firingMode="Random" id="PickUp_Collectable1" infiniteServer="false" name="PickUp_Collectable1" nameOffsetX="0" nameOffsetY="0" player="0" positionX="150" positionY="345" priority="0" urgent="false" value="1.0" weight="1.0"/>
+    <transition angle="0" displayName="true" distribution="constant" firingMode="Random" id="PickUp_CaveKey" infiniteServer="false" name="PickUp_CaveKey" nameOffsetX="0" nameOffsetY="0" player="0" positionX="548" positionY="240" priority="0" urgent="false" value="1.0" weight="1.0"/>
+    <transition angle="0" displayName="true" distribution="constant" firingMode="Random" id="PickUp_Collectable2" infiniteServer="false" name="PickUp_Collectable2" nameOffsetX="0" nameOffsetY="0" player="0" positionX="713" positionY="263" priority="0" urgent="false" value="1.0" weight="1.0"/>
+    <arc id="A0" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Trap_TRAP" target="Trap_to_North" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="358" yCoord="466"/>
+      <arcpath arcPointType="false" id="1" xCoord="375" yCoord="420"/>
+    </arc>
+    <arc id="A1" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Trap_to_North" target="Tile2" type="normal" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="375" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="358" yCoord="344"/>
+    </arc>
+    <arc id="A2" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="CaveEntrance" target="CaveEntrance_to_North" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="483" yCoord="466"/>
+      <arcpath arcPointType="false" id="1" xCoord="465" yCoord="420"/>
+    </arc>
+    <arc id="A3" inscription="1" nameOffsetX="0" nameOffsetY="0" source="CaveEntrance_to_North" target="Tile3" type="normal" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="465" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="483" yCoord="344"/>
+    </arc>
+    <arc id="A4" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="CaveExit" target="CaveExit_to_North" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="703" yCoord="466"/>
+      <arcpath arcPointType="false" id="1" xCoord="720" yCoord="420"/>
+    </arc>
+    <arc id="A5" inscription="1" nameOffsetX="0" nameOffsetY="0" source="CaveExit_to_North" target="Tile4" type="normal" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="720" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="703" yCoord="344"/>
+    </arc>
+    <arc id="A6" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Tile2" target="Tile2_to_South" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="349" yCoord="344"/>
+      <arcpath arcPointType="false" id="1" xCoord="338" yCoord="390"/>
+    </arc>
+    <arc id="A7" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Hero_Lives" target="Tile2_to_South" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="256" yCoord="536"/>
+      <arcpath arcPointType="false" id="1" xCoord="333" yCoord="406"/>
+    </arc>
+    <arc id="A8" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Tile2_to_South" target="Trap_TRAP" type="normal" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="338" yCoord="420"/>
+      <arcpath arcPointType="false" id="1" xCoord="349" yCoord="466"/>
+    </arc>
+    <arc id="A9" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Tile3" target="Tile3_to_South" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="493" yCoord="344"/>
+      <arcpath arcPointType="false" id="1" xCoord="510" yCoord="390"/>
+    </arc>
+    <arc id="A10" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Tile3_to_South" target="CaveEntrance" type="normal" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="510" yCoord="420"/>
+      <arcpath arcPointType="false" id="1" xCoord="493" yCoord="466"/>
+    </arc>
+    <arc id="A11" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Tile4" target="Tile4_to_South" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="693" yCoord="344"/>
+      <arcpath arcPointType="false" id="1" xCoord="675" yCoord="390"/>
+    </arc>
+    <arc id="A12" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Tile4_to_South" target="CaveExit" type="normal" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="675" yCoord="420"/>
+      <arcpath arcPointType="false" id="1" xCoord="693" yCoord="466"/>
+    </arc>
+    <arc id="A13" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Tile1" target="Tile1_to_East" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="223" yCoord="323"/>
+      <arcpath arcPointType="false" id="1" xCoord="273" yCoord="301"/>
+    </arc>
+    <arc id="A14" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Tile1_to_East" target="Tile2" type="normal" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="283" yCoord="300"/>
+      <arcpath arcPointType="false" id="1" xCoord="339" yCoord="324"/>
+    </arc>
+    <arc id="A15" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Tile2" target="Tile2_to_East" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="367" yCoord="323"/>
+      <arcpath arcPointType="false" id="1" xCoord="415" yCoord="301"/>
+    </arc>
+    <arc id="A16" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Tile2_to_East" target="Tile3" type="normal" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="425" yCoord="300"/>
+      <arcpath arcPointType="false" id="1" xCoord="475" yCoord="323"/>
+    </arc>
+    <arc id="A17" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Trap_TRAP" target="Trap_to_East" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="368" yCoord="477"/>
+      <arcpath arcPointType="false" id="1" xCoord="415" yCoord="466"/>
+    </arc>
+    <arc id="A18" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Trap_to_East" target="CaveEntrance" type="normal" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="425" yCoord="465"/>
+      <arcpath arcPointType="false" id="1" xCoord="473" yCoord="477"/>
+    </arc>
+    <arc id="A19" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Tile2" target="Tile2_to_West" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="339" yCoord="335"/>
+      <arcpath arcPointType="false" id="1" xCoord="283" yCoord="353"/>
+    </arc>
+    <arc id="A20" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Tile2_to_West" target="Tile1" type="normal" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="273" yCoord="354"/>
+      <arcpath arcPointType="false" id="1" xCoord="224" yCoord="336"/>
+    </arc>
+    <arc id="A21" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Tile3" target="Tile3_to_West" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="474" yCoord="335"/>
+      <arcpath arcPointType="false" id="1" xCoord="425" yCoord="353"/>
+    </arc>
+    <arc id="A22" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Tile3_to_West" target="Tile2" type="normal" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="415" yCoord="354"/>
+      <arcpath arcPointType="false" id="1" xCoord="368" yCoord="336"/>
+    </arc>
+    <arc id="A23" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="CaveEntrance" target="CaveEntrance_to_West" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="475" yCoord="488"/>
+      <arcpath arcPointType="false" id="1" xCoord="425" yCoord="518"/>
+    </arc>
+    <arc id="A24" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Hero_Lives" target="CaveEntrance_to_West" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="263" yCoord="546"/>
+      <arcpath arcPointType="false" id="1" xCoord="415" yCoord="524"/>
+    </arc>
+    <arc id="A25" inscription="1" nameOffsetX="0" nameOffsetY="0" source="CaveEntrance_to_West" target="Trap_TRAP" type="normal" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="415" yCoord="514"/>
+      <arcpath arcPointType="false" id="1" xCoord="367" yCoord="488"/>
+    </arc>
+    <arc id="A26" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="CaveEntrance" target="CaveEntrance_enter" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="503" yCoord="477"/>
+      <arcpath arcPointType="false" id="1" xCoord="588" yCoord="459"/>
+    </arc>
+    <arc id="A27" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="CaveKey_inventory" target="CaveEntrance_enter" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="568" yCoord="359"/>
+      <arcpath arcPointType="false" id="1" xCoord="593" yCoord="443"/>
+    </arc>
+    <arc id="A28" inscription="1" nameOffsetX="0" nameOffsetY="0" source="CaveEntrance_enter" target="CaveExit" type="normal" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="598" yCoord="458"/>
+      <arcpath arcPointType="false" id="1" xCoord="683" yCoord="477"/>
+    </arc>
+    <arc id="A29" inscription="1" nameOffsetX="0" nameOffsetY="0" source="CaveEntrance_enter" target="CaveKey_inventory" type="normal" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="593" yCoord="443"/>
+      <arcpath arcPointType="false" id="1" xCoord="568" yCoord="359"/>
+    </arc>
+    <arc id="A30" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="CaveExit" target="CaveExit_enter" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="685" yCoord="487"/>
+      <arcpath arcPointType="false" id="1" xCoord="605" yCoord="525"/>
+    </arc>
+    <arc id="A31" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="CaveKey_inventory" target="CaveExit_enter" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="567" yCoord="360"/>
+      <arcpath arcPointType="false" id="1" xCoord="600" yCoord="510"/>
+    </arc>
+    <arc id="A32" inscription="1" nameOffsetX="0" nameOffsetY="0" source="CaveExit_enter" target="CaveEntrance" type="normal" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="595" yCoord="526"/>
+      <arcpath arcPointType="false" id="1" xCoord="502" yCoord="486"/>
+    </arc>
+    <arc id="A33" inscription="1" nameOffsetX="0" nameOffsetY="0" source="CaveExit_enter" target="CaveKey_inventory" type="normal" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="600" yCoord="510"/>
+      <arcpath arcPointType="false" id="1" xCoord="567" yCoord="360"/>
+    </arc>
+    <arc id="A34" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Collectable1_ground" target="PickUp_Collectable1" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="142" yCoord="298"/>
+      <arcpath arcPointType="false" id="1" xCoord="165" yCoord="345"/>
+    </arc>
+    <arc id="A35" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Tile1" target="PickUp_Collectable1" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="198" yCoord="340"/>
+      <arcpath arcPointType="false" id="1" xCoord="170" yCoord="365"/>
+    </arc>
+    <arc id="A36" inscription="1" nameOffsetX="0" nameOffsetY="0" source="PickUp_Collectable1" target="Collectable1_inventory" type="normal" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="165" yCoord="375"/>
+      <arcpath arcPointType="false" id="1" xCoord="150" yCoord="407"/>
+    </arc>
+    <arc id="A37" inscription="1" nameOffsetX="0" nameOffsetY="0" source="PickUp_Collectable1" target="Tile1" type="normal" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="170" yCoord="355"/>
+      <arcpath arcPointType="false" id="1" xCoord="197" yCoord="338"/>
+    </arc>
+    <arc id="A38" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="CaveKey_ground" target="PickUp_CaveKey" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="517" yCoord="272"/>
+      <arcpath arcPointType="false" id="1" xCoord="558" yCoord="250"/>
+    </arc>
+    <arc id="A39" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Tile3" target="PickUp_CaveKey" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="499" yCoord="320"/>
+      <arcpath arcPointType="false" id="1" xCoord="558" yCoord="263"/>
+    </arc>
+    <arc id="A40" inscription="1" nameOffsetX="0" nameOffsetY="0" source="PickUp_CaveKey" target="CaveKey_inventory" type="normal" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="563" yCoord="270"/>
+      <arcpath arcPointType="false" id="1" xCoord="563" yCoord="330"/>
+    </arc>
+    <arc id="A41" inscription="1" nameOffsetX="0" nameOffsetY="0" source="PickUp_CaveKey" target="Tile3" type="normal" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="558" yCoord="257"/>
+      <arcpath arcPointType="false" id="1" xCoord="498" yCoord="319"/>
+    </arc>
+    <arc id="A42" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Collectable2_ground" target="PickUp_Collectable2" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="704" yCoord="288"/>
+      <arcpath arcPointType="false" id="1" xCoord="723" yCoord="279"/>
+    </arc>
+    <arc id="A43" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Tile4" target="PickUp_Collectable2" type="timed" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="708" yCoord="318"/>
+      <arcpath arcPointType="false" id="1" xCoord="728" yCoord="293"/>
+    </arc>
+    <arc id="A44" inscription="1" nameOffsetX="0" nameOffsetY="0" source="PickUp_Collectable2" target="Collectable2_inventory" type="normal" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="728" yCoord="263"/>
+      <arcpath arcPointType="false" id="1" xCoord="743" yCoord="232"/>
+    </arc>
+    <arc id="A45" inscription="1" nameOffsetX="0" nameOffsetY="0" source="PickUp_Collectable2" target="Tile4" type="normal" weight="1">
+      <hlinscription>
+        <text>1'dot</text>
+        <structure>
+          <numberof>
+            <subterm>
+              <numberconstant value="1">
+                <positive/>
+              </numberconstant>
+            </subterm>
+            <subterm>
+              <useroperator declaration="dot"/>
+            </subterm>
+          </numberof>
+        </structure>
+      </hlinscription>
+      <arcpath arcPointType="false" id="0" xCoord="728" yCoord="293"/>
+      <arcpath arcPointType="false" id="1" xCoord="708" yCoord="318"/>
+    </arc>
+  </net>
+  <feature isColored="false" isGame="false" isStochastic="false" isTimed="false"/>
+</pnml>

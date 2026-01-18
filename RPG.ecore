@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="rpg" nsURI="rpg" nsPrefix="rpg">
+  <eClassifiers xsi:type="ecore:EClass" name="World">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="levels" lowerBound="1"
+        upperBound="-1" eType="#//Level" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hero" lowerBound="1" eType="#//Hero"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Level">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tiles" lowerBound="1" upperBound="-1"
+        eType="#//Tile" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tile" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="north" eType="#//Tile"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="south" eType="#//Tile"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="east" eType="#//Tile"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="west" eType="#//Tile"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StandardTile" eSuperTypes="#//Tile">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="item" eType="#//Item" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Obstacle" eSuperTypes="#//Tile"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Trap" eSuperTypes="#//Tile"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Door" eSuperTypes="#//Tile">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leadsTo" eType="#//Door"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiresKey" eType="#//Key"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Hero">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" lowerBound="1"
+        eType="#//Tile"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inventory" upperBound="-1"
+        eType="#//Item" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lives" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Item" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Key" eSuperTypes="#//Item"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Objective" eSuperTypes="#//Item">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="points" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+</ecore:EPackage>

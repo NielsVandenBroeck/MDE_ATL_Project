@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rpg:World xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:rpg="rpg"
+    xsi:schemaLocation="rpg /TEST/RPG.ecore">
+  <levels name="Forest">
+    <tiles xsi:type="rpg:StandardTile"
+        name="Tile1"
+        east="//@levels.0/@tiles.1">
+      <item
+          xsi:type="rpg:Objective"
+          name="Collectable1"
+          points="1"/>
+    </tiles>
+    <tiles xsi:type="rpg:StandardTile"
+        name="Tile2"
+        south="//@levels.0/@tiles.3"
+        east="//@levels.0/@tiles.2"
+        west="//@levels.0/@tiles.0"/>
+    <tiles xsi:type="rpg:StandardTile"
+        name="Tile3"
+        south="//@levels.0/@tiles.4"
+        west="//@levels.0/@tiles.1">
+      <item
+          xsi:type="rpg:Key"
+          name="CaveKey"/>
+    </tiles>
+    <tiles xsi:type="rpg:Trap"
+        name="Trap"
+        north="//@levels.0/@tiles.1"
+        east="//@levels.0/@tiles.4"/>
+    <tiles xsi:type="rpg:Door"
+        name="CaveEntrance"
+        north="//@levels.0/@tiles.2"
+        west="//@levels.0/@tiles.3"
+        leadsTo="//@levels.1/@tiles.0"
+        requiresKey="//@levels.0/@tiles.2/@item"/>
+  </levels>
+  <levels name="Cave">
+    <tiles xsi:type="rpg:Door"
+        name="CaveExit"
+        north="//@levels.1/@tiles.1"
+        leadsTo="//@levels.0/@tiles.4"
+        requiresKey="//@levels.0/@tiles.2/@item"/>
+    <tiles xsi:type="rpg:StandardTile"
+        name="Tile4"
+        south="//@levels.1/@tiles.0"
+        east="//@levels.1/@tiles.2">
+      <item
+          xsi:type="rpg:Objective"
+          name="Collectable2"
+          points="1"/>
+    </tiles>
+    <tiles xsi:type="rpg:Obstacle"
+        name="Obstacle"
+        west="//@levels.1/@tiles.1"/>
+  </levels>
+  <hero name="Warrior"
+      location="//@levels.0/@tiles.1">
+    <lives>10</lives>
+  </hero>
+</rpg:World>
